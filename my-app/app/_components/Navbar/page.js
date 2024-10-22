@@ -6,6 +6,7 @@ import { FaBars } from "react-icons/fa6";
 import { RiCloseFill } from "react-icons/ri";
 import Buttons from "../Buttons/Button";
 import Image from "next/image";
+import Mydok from "../logo.jpg";
 
 
 
@@ -24,35 +25,36 @@ export default function Navbar() {
                     
                     
                     
-                <div className="flex items-center justify-between">
+                <div className="flex  flex-row items-center justify-between gap-x-16">
 
                    
-                    <div className="text-[#f4f4f4] font-extrabold text-xl">
-                    {/* <Image src={Mydoc} width={500} height={100}/> */}
+                    <div className="flex  text-[#f4f4f4] font-extrabold text-xl">
+                    <Image src={Mydok} width={100} height={100} className="px-2 bg-white rounded-[50%]"/> 
+                    
                     </div>
                    
                    
-                    <nav className={`absolute left-0 top-[108px] w-full  bg-black opacity-90 h-[70vh] lg:flex lg:relative lg:h-fit lg:top-0 lg:w-fit ${
-                        !display ? "hidden": ""
+                    <nav className={`absolute left-0 top-[108px] w-full rounded-sm opacity-90 h-[70vh] lg:flex lg:relative lg:h-fit lg:top-0 lg:w-fit ${
+                        !display ? "hidden" : ""
                         }`}
                         > 
                         <ul className="flex flex-col justify-center items-center h-full gap-2 text-xl font-extrabold text-[#f4f4f4] lg:flex-row lg:w-fit lg:gap-20">
                             <li>
-                                <Link href="/">Home</Link>
+                                <Link href="/" className="hover:opacity-50">Home</Link>
                             </li>
                             <li>
-                                <Link href="/about">About</Link>
+                                <Link href="/about" className="hover:opacity-50">About</Link>
                             </li>
                             <li>
-                                <Link href="/services">Services</Link>
+                                <Link href="/services" className="hover:opacity-50">Services</Link>
                             </li>
                             <li>
-                                <Link href="/contact">Contact Us</Link>
+                                <Link href="/contact" className="hover:opacity-50">Contact Us</Link>
                             </li>
                             <li>
-                                <Link href="/appointment">Appointment</Link>
+                                <Link href="/appointment" className="hover:opacity-50">Appointment</Link>
                             </li>
-                                <Buttons text="Request a call"/>
+                                <Buttons text="Request a call" className=" "/>
                         </ul>
                     </nav>
                     
