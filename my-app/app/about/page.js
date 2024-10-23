@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import {motion} from 'framer-motion';
 import Mydom from "../Images/Doctor4.jpg";
 import Mydon from "../Images/Doctor13.jpg";
 import Mydoo from "../Images/Doctor8.jpg";
@@ -9,14 +10,33 @@ import Mydoo from "../Images/Doctor8.jpg";
 
 
 export default function About() {
+  
   return (
-    <main className="bg-slate-300"> 
+    <main className="bg-slate-300 min-h-screen pt-20 "> 
     <section >
-    <div>
-        <h1 className="flex justify-center font-semibold py-4 mx-[30%] text-4xl ">ABOUT DAMTOL HEALTHCARE</h1>
-        <p className="text-2xl mx-10 flex justify-center font-medium">We are a leading healthcare provider offering top-notch medical services.</p>
-        <p className=" flex justify-center font-medium text-2xl">Our team of expert doctors ensures that you get the best care possible.</p>
-    </div>
+    <motion.section className="max-w-4xl mx-auto py-8"
+                    initial={{opacity:0, y:50}}
+                    animate={{opacity:1, y:0}}
+                    transition={{duration:1}}
+                    >
+          <motion.h1 className="flex justify-center font-semibold py-4 mx-[30%] text-3xl"
+                    initial={{opacity:0}}
+                    animate={{opacity:1}}
+                    transition={{duration:0.8}}
+                    >
+                        ABOUT DAMTOL HEALTHCARE      
+                      </motion.h1>
+          <motion.p className="text-2xl mx-10 flex justify-center font-medium">
+          We are a leading healthcare provider offering top-notch medical services.
+          </motion.p>
+          <motion.p className="text-2xl mx-10 flex justify-center font-medium">
+          Our team of expert doctors ensures that you get the best care possible.
+          </motion.p>
+          <motion.div>
+            
+          </motion.div>
+    </motion.section>
+    
     </section>
 
     <section>

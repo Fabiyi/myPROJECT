@@ -40,7 +40,7 @@ return (
 
 <section className="my-20 text-2xl">
         {services.map((service) => (
-<div key={service.id} className="border-r-4 p-16 my-10 bg-slate-600">
+<div key={service.id} className="border-r-4 p-16 my-10 bg-slate-800">
 <h2>{service.name}</h2>
 <p>{service.description}</p>
 </div>

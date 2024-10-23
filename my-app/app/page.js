@@ -1,18 +1,19 @@
+"use client"
 import React from "react";
 import Image from "next/image";
 import Buttons from "./_components/Buttons/Button";
 import Container from "./_components/Container";
-
-import Mydoc from "./Images/Doctor1.jpg";
+import {motion } from "framer-motion";
+import Mydoc from "./Images/Doctor7.jpg";
 import Mydod from "./Images/Doctor2.jpg";
-
+import Mydoe from "./Images/Doctor1.jpg";
 
 
 
 export default function Home() {
   return (
     
-    <div>
+    <div className="mx-auto p-6">
  
       <section className="bg-background">
         <Container>
@@ -22,7 +23,9 @@ export default function Home() {
                        
                 <h1 className={`text-white text-4xl font-extrabold w-[50%] lg:text-7xl px-20 py-8 lg:font-black font-[family-name:var(--heading-font)]`}> Consult a Doctor Anytime, anywhere By video call</h1>  
                 <div className="hidden lg:block lg:w-[2/5] lg:h-full w-fit lg:py-20 lg:overflow-hidden px-8">
-                  <Image src={Mydoc} width={600} height={700}/>
+                  <motion.div >
+.                  <Image src={Mydoc} width={600} height={700}/>
+                  </motion.div>
                 </div>
                       
                       
@@ -40,8 +43,8 @@ export default function Home() {
       <section className="bg-white flex gap-6 mx-10">
         <Container>
           <div className="flex flex-row justify-center mx-10">
-            <div className=" lg:block lg:h-full w-[100%] lg:py-20 lg:overflow-hidden  ">
-              <Image src={Mydoc} width={600} height={100}/>
+            <div className=" lg:h-full w-[100%] lg:py-20 lg:overflow-hidden  ">
+              <Image src={Mydoe} width={600} height={100}/>
             </div>
               <h2 className="text-xl p-10 font-bold flex items-center ">  A balanced diet is crucial for overall health. It includes a variety of foods from all food groups: fruits, vegetables, proteins, whole grains, and dairy. Learn more about how to make healthier food choices and create a balanced meal plan.</h2>
           </div>

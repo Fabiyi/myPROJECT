@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import Link from "next/link";
 import Container from "../Container";
 import { useState } from "react";
@@ -6,65 +6,88 @@ import { FaBars } from "react-icons/fa6";
 import { RiCloseFill } from "react-icons/ri";
 import Buttons from "../Buttons/Button";
 import Image from "next/image";
-import Mydok from "../logo.jpg";
-
-
-
-
-
+import Mydok from "../logo.png";
+import {motion} from "framer-motion";
 
 
 export default function Navbar() {
-    const [display, setDisplay] = useState(false);
-   
-
+    const [Display, setDisplay] = useState(false);
+    const links = [
+        {name: 'Home', path: '/'},
+        {name: 'About', path: '/about'},
+        {name: 'Services', path: '/services'},
+        {name: 'Contact', path: '/contact'},
+        {name: 'Appointment', path: '/appointment'},
+    ];
     return(
-        <header className=" flex items-center justify-between bg-background px-3 py-10 relative">
-            <Container>
 
-                    
-                    
-                    
-                <div className="flex  flex-row items-center justify-between gap-x-16">
+        <motion.nav className="bg-gray-800 p-4 fixed top-0 w-full z-10" 
+        initial={{opacity:0, y:-50}}
+        animate={{opacity: 1, y:0}}
+        transition={{duration: 0.8}}
+        >
+        <div className="container mx-auto flex justify-between items-center">
+        <Image src={Mydok} width={50} height={50} className="bg-white rounded-2xl"/>
+        <Link href="/"> <a className="text-white text-2xl font-bold">Mylogo</a></Link>
+        
+        <Buttons
+        onClick={() =>
+            setDisplay(!Display)}
+            className="text-white block lg:hidden focus:outline-none">
+            <svg className="w-6 h-6"
+                 fill="none"
+                 stroke="currentColor"
+                 viewBox="0 0 24 24"
+                 xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"/>
+            </svg>
+        </Buttons>
 
-                   
-                    <div className="flex  text-[#f4f4f4] font-extrabold text-xl">
-                    <Image src={Mydok} width={100} height={100} className="px-2 bg-white rounded-[50%]"/> 
-                    
-                    </div>
-                   
-                   
-                    <nav className={`absolute left-0 top-[108px] w-full rounded-sm opacity-90 h-[70vh] lg:flex lg:relative lg:h-fit lg:top-0 lg:w-fit ${
-                        !display ? "hidden" : ""
-                        }`}
-                        > 
-                        <ul className="flex flex-col justify-center items-center h-full gap-2 text-xl font-extrabold text-[#f4f4f4] lg:flex-row lg:w-fit lg:gap-20">
-                            <li>
-                                <Link href="/" className="hover:opacity-50">Home</Link>
-                            </li>
-                            <li>
-                                <Link href="/about" className="hover:opacity-50">About</Link>
-                            </li>
-                            <li>
-                                <Link href="/services" className="hover:opacity-50">Services</Link>
-                            </li>
-                            <li>
-                                <Link href="/contact" className="hover:opacity-50">Contact Us</Link>
-                            </li>
-                            <li>
-                                <Link href="/appointment" className="hover:opacity-50">Appointment</Link>
-                            </li>
-                                <Buttons text="Request a call" className=" "/>
-                        </ul>
-                    </nav>
-                    
-                </div>
-               
-            </Container> 
-        </header>
-    )
- 
+        {/*Links for Large screens */}
+
+        <motion.div className="hidden lg:flex space-x-6 text-white"
+                    initial={{opacity:0, x: 50}}
+                    animate={{opacity:1, x:0}}
+                    transition={{duration: 0.8, delay: 0.3}}>
+                    {links.map((link)=> (
+                        <Link
+                        key={link.name} href={link.path} className="hover:text-gray-400">
+                            {link.name} 
+                        </Link>
+                    ))}
+         </motion.div>
+
+        /" moblie menu "/
+         {Display && (
+              <motion.div className="lg:hidden absolute top-16 left-0 w-full bg-gray-800 text-white"
+                          initial={{height:0, opacity:0}}
+                          animate={{height:'auto', opacity:1}}
+                          exit={{height:0,opacity:0}}
+                          transition={{duration:0.5}}
+                          >
+                        <ul className="flex flex-col items-center">
+                            {links.map((link) =>(
+                                <li key={link.name} className="py-2">
+                                   <Link href={link.path} onClick={() =>setDisplay(false)} className="hover:text-gray-400">
+                                        {link.name}
+                                   </Link> 
+                                </li>
+                            ))}
+
+                        </ul>  
+              </motion.div>
+         )}
+       
+        </div>
+        </motion.nav>     
+    );
 }
 
 
-    
+
+
+
+
+

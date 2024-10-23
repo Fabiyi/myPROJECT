@@ -19,7 +19,7 @@ setTime('');
 
 return (
 <div className="p-20">
-<header className="bg-blue-200 p-20 flex justify-center font-semibold text-4xl">
+<header className="bg-gray-200 p-20 flex justify-center font-semibold text-4xl">
 <h1>Schedule an Appointment</h1>
 </header>
 
@@ -56,11 +56,11 @@ onChange={(e) =>setTime(e.target.value)}
 required
           />
 </div>
-      <Buttons text="Schedule appiontment"/>
+      <Buttons text="Schedule appointment"/>
 
 </form>
 
-      {message&&<p className="mt-20 text-green-500">{message}</p>}
+      {message && <p className="mt-20 text-green-500">{message}</p>}
 
 </div>
   );
