@@ -59,7 +59,7 @@ export default function Navbar() {
                     ))}
          </motion.div>
 
-        /" moblie menu "/
+        {/* moblie menu */}
          {Display && (
               <motion.div className="lg:hidden absolute top-16 left-0 w-full bg-gray-800 text-white"
                           initial={{height:0, opacity:0}}
